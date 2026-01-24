@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Lethu | Foundation Samples Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-purple: #2E0854;
+            --royal-accent: #FFD700;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-light: #F5F5F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #0c0214;
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: linear-gradient(rgba(12, 2, 20, 0.8), rgba(12, 2, 20, 0.8)), url('prince_lethu_portal_background_1769234005712.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            padding: 60px 40px;
+            text-align: center;
+            width: 100%;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #D4AF37, #FFD700, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        .sample-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .sample-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .sample-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212, 175, 55, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .sample-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-gold);
+        }
+
+        .card-description {
+            font-weight: 300;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .btn-view {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            color: var(--primary-gold);
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .sample-card:hover .btn-view {
+            gap: 15px;
+        }
+
+        .footer {
+            padding: 40px;
+            text-align: center;
+            opacity: 0.6;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Staggered animation for cards */
+        .sample-card:nth-child(1) { animation-delay: 0.2s; }
+        .sample-card:nth-child(2) { animation-delay: 0.4s; }
+        .sample-card:nth-child(3) { animation-delay: 0.6s; }
+        .sample-card.placeholder { animation-delay: 0.8s; }
+
+        .placeholder {
+            border: 2px dashed rgba(212, 175, 55, 0.3);
+            background: transparent;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0.5;
+        }
+
+        .placeholder:hover {
+            opacity: 0.8;
+            border-style: solid;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="subtitle">Mzilikazi Royal Foundation</div>
+        <h1>Prince Lethu Samples</h1>
+        <div class="subtitle" style="font-size: 0.9rem; margin-top: 5px;">Project Showcases & Prototypes</div>
+    </header>
+
+    <div class="container">
+        <!-- Sample 1 -->
+        <a href="cryptolab_one_page_website.html" class="sample-card">
+            <span class="card-icon">💎</span>
+            <h2 class="card-title">Wealth Mindset Portal</h2>
+            <p class="card-description">
+                A premium one-page dashboard focused on crypto education, financial discipline, and digital asset management. Built for the modern visionary.
+            </p>
+            <div class="btn-view">
+                Explore Demo <span>&rarr;</span>
+            </div>
+        </a>
+
+        <!-- Sample 2 -->
+        <a href="pikamoon_coin_tailwind_html_website.html" class="sample-card">
+            <span class="card-icon">🤝</span>
+            <h2 class="card-title">Volunteer Together</h2>
+            <p class="card-description">
+                A clean, modern NGO platform connecting communities. Designed to streamline volunteering efforts and maximize social impact.
+            </p>
+            <div class="btn-view">
+                Explore Demo <span>&rarr;</span>
+            </div>
+        </a>
+
+        <!-- Sample 3 -->
+        <a href="volunteer-with-chatbot (1).html" class="sample-card">
+            <span class="card-icon">🤖</span>
+            <h2 class="card-title">AI Volunteer Assistant</h2>
+            <p class="card-description">
+                Enhancing the Volunteer Together platform with an integrated AI Chatbot to guide supporters and answer queries in real-time.
+            </p>
+            <div class="btn-view">
+                Explore Demo <span>&rarr;</span>
+            </div>
+        </a>
+
+        <!-- Placeholder for future samples -->
+        <div class="sample-card placeholder">
+            <span class="card-icon" style="font-size: 2rem;">+</span>
+            <h2 class="card-title" style="font-size: 1.2rem;">More Samples Coming Soon</h2>
+            <p style="font-size: 0.9rem; opacity: 0.7;">We are constantly expanding Prince Lethu's digital ecosystem.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2026 Mzilikazi Royal Foundation. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
