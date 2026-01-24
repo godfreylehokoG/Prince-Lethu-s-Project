@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prince Lethu | Foundation Samples Portal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-gold: #D4AF37;
@@ -52,7 +55,7 @@
             background: linear-gradient(to right, #D4AF37, #FFD700, #D4AF37);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             letter-spacing: 2px;
         }
 
@@ -106,7 +109,7 @@
         .sample-card:hover {
             transform: translateY(-10px) scale(1.02);
             border-color: var(--primary-gold);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.2);
             background: rgba(255, 255, 255, 0.08);
         }
 
@@ -165,6 +168,7 @@
                 opacity: 0;
                 transform: translateY(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -176,6 +180,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -183,10 +188,25 @@
         }
 
         /* Staggered animation for cards */
-        .sample-card:nth-child(1) { animation-delay: 0.2s; }
-        .sample-card:nth-child(2) { animation-delay: 0.4s; }
-        .sample-card:nth-child(3) { animation-delay: 0.6s; }
-        .sample-card.placeholder { animation-delay: 0.8s; }
+        .sample-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .sample-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .sample-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .sample-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .sample-card.placeholder {
+            animation-delay: 0.5s;
+        }
 
         .placeholder {
             border: 2px dashed rgba(212, 175, 55, 0.3);
@@ -203,11 +223,17 @@
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .container { padding: 20px; }
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -222,7 +248,8 @@
             <span class="card-icon">💎</span>
             <h2 class="card-title">Wealth Mindset Portal</h2>
             <p class="card-description">
-                A premium one-page dashboard focused on crypto education, financial discipline, and digital asset management. Built for the modern visionary.
+                A premium one-page dashboard focused on crypto education, financial discipline, and digital asset
+                management. Built for the modern visionary.
             </p>
             <div class="btn-view">
                 Explore Demo <span>&rarr;</span>
@@ -234,7 +261,8 @@
             <span class="card-icon">🤝</span>
             <h2 class="card-title">Volunteer Together</h2>
             <p class="card-description">
-                A clean, modern NGO platform connecting communities. Designed to streamline volunteering efforts and maximize social impact.
+                A clean, modern NGO platform connecting communities. Designed to streamline volunteering efforts and
+                maximize social impact.
             </p>
             <div class="btn-view">
                 Explore Demo <span>&rarr;</span>
@@ -246,7 +274,21 @@
             <span class="card-icon">🤖</span>
             <h2 class="card-title">AI Volunteer Assistant</h2>
             <p class="card-description">
-                Enhancing the Volunteer Together platform with an integrated AI Chatbot to guide supporters and answer queries in real-time.
+                Enhancing the Volunteer Together platform with an integrated AI Chatbot to guide supporters and answer
+                queries in real-time.
+            </p>
+            <div class="btn-view">
+                Explore Demo <span>&rarr;</span>
+            </div>
+        </a>
+
+        <!-- Sample 4 -->
+        <a href="the-heritage-project/index.html" class="sample-card">
+            <span class="card-icon">🌍</span>
+            <h2 class="card-title">The Heritage Project</h2>
+            <p class="card-description">
+                Celebrating African Royalty and culture through immersive storytelling, heritage preservation, and
+                community empowerment.
             </p>
             <div class="btn-view">
                 Explore Demo <span>&rarr;</span>
@@ -257,7 +299,8 @@
         <div class="sample-card placeholder">
             <span class="card-icon" style="font-size: 2rem;">+</span>
             <h2 class="card-title" style="font-size: 1.2rem;">More Samples Coming Soon</h2>
-            <p style="font-size: 0.9rem; opacity: 0.7;">We are constantly expanding Prince Lethu's digital ecosystem.</p>
+            <p style="font-size: 0.9rem; opacity: 0.7;">We are constantly expanding Prince Lethu's digital ecosystem.
+            </p>
         </div>
     </div>
 
@@ -266,4 +309,5 @@
     </footer>
 
 </body>
+
 </html>
