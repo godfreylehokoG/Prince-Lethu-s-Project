@@ -10,11 +10,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -73,12 +74,8 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-crown">
-                    <svg viewBox="0 0 40 40">
-                        <path d="M20 5 L5 20 L10 35 L30 35 L35 20 Z" fill="none" stroke="currentColor"
-                            stroke-width="2" />
-                        <circle cx="20" cy="20" r="5" fill="currentColor" />
-                    </svg>
+                <div class="logo-image">
+                    <img src="assets/ubuntu_logo-removebg.png" alt="Ubuntu Heritage Logo">
                 </div>
                 <span class="logo-text">Ubuntu <span>Heritage</span></span>
             </a>
@@ -86,6 +83,7 @@
                 <a href="#story" class="nav-link"><span>Our Story</span></a>
                 <a href="#mzilikazi" class="nav-link"><span>Royal Foundation</span></a>
                 <a href="#impact" class="nav-link"><span>Our Impact</span></a>
+                <a href="#merch" class="nav-link"><span>Merch</span></a>
                 <a href="#volunteer" class="nav-link btn-nav"><span>Volunteer</span></a>
                 <a href="#donate" class="nav-link btn-nav btn-donate"><span>Donate</span>
                     <div class="btn-shine"></div>
@@ -98,10 +96,60 @@
     <!-- Hero Section -->
     <header class="hero" id="hero">
         <div class="hero-bg">
+            <video autoplay muted loop playsinline class="hero-video" id="heroVideo">
+                <source src="assets/background.mp4" type="video/mp4">
+            </video>
+            <img src="assets/background.jpeg" alt="Heritage Background" class="hero-image" id="heroStaticImg">
+            <div class="hero-overlay"></div>
             <div class="gradient-orb orb-1"></div>
             <div class="gradient-orb orb-2"></div>
             <div class="gradient-orb orb-3"></div>
             <div class="hero-mesh"></div>
+        </div>
+
+        <!-- Experience Settings Widget -->
+        <div class="experience-widget" id="experienceWidget">
+            <button class="widget-toggle magnetic" title="Display Settings">
+                <i class="ph-duotone ph-sliders"></i>
+            </button>
+            <div class="widget-panel">
+                <div class="widget-header">
+                    <h4>Experience Settings</h4>
+                </div>
+                <div class="widget-body">
+                    <div class="setting-item special">
+                        <div class="setting-info">
+                            <span class="setting-label">Visual Mode</span>
+                            <span class="setting-desc">Classic • Image • Video</span>
+                        </div>
+                        <div class="mode-selector">
+                            <label class="mode-option" title="Classic Theme">
+                                <input type="radio" name="heroMode" value="classic">
+                                <i class="ph-duotone ph-paint-brush-broad"></i>
+                            </label>
+                            <label class="mode-option" title="Heritage Image">
+                                <input type="radio" name="heroMode" value="image">
+                                <i class="ph-duotone ph-image"></i>
+                            </label>
+                            <label class="mode-option" title="Cinematic Video">
+                                <input type="radio" name="heroMode" value="video" checked>
+                                <i class="ph-duotone ph-play-circle"></i>
+                            </label>
+                            <div class="mode-glider"></div>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label">Regal Title</span>
+                            <span class="setting-desc">Main hero heading</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="titleToggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="hero-parallax" id="heroParallax">
@@ -126,14 +174,14 @@
 
             <h1 class="hero-title">
                 <span class="title-line animate-on-load" data-delay="0.2">
-                    <span class="char-wrap">Celebrating the</span>
+                    <span class="char-wrap">Honoring the</span>
                 </span>
                 <span class="title-line title-highlight animate-on-load" data-delay="0.4">
-                    <span class="char-wrap">Legacy of African</span>
+                    <span class="char-wrap">Majesty of African</span>
                     <div class="title-underline"></div>
                 </span>
                 <span class="title-line animate-on-load" data-delay="0.6">
-                    <span class="char-wrap">Royalty</span>
+                    <span class="char-wrap">Kingdoms</span>
                 </span>
             </h1>
 
@@ -146,7 +194,7 @@
             <div class="hero-cta animate-on-load" data-delay="1">
                 <a href="#volunteer" class="btn btn-primary magnetic">
                     <span class="btn-text">Join Our Mission</span>
-                    <span class="btn-icon">→</span>
+                    <span class="btn-icon"><i class="ph-duotone ph-arrow-right"></i></span>
                     <div class="btn-glow"></div>
                     <div class="btn-ripple"></div>
                 </a>
@@ -210,7 +258,7 @@
             <div class="story-grid">
                 <div class="story-card" data-tilt>
                     <div class="card-glow"></div>
-                    <div class="story-icon floating">🏰</div>
+                    <div class="story-icon floating"><i class="ph-duotone ph-castle-turret"></i></div>
                     <h3>Ancient Roots, Living Legacy</h3>
                     <p>From the great kingdoms of Africa—the Zulu, Ndebele, Swazi, and many more—our ancestors built
                         civilizations that rivaled any in the world.</p>
@@ -218,7 +266,7 @@
                 </div>
                 <div class="story-card" data-tilt>
                     <div class="card-glow"></div>
-                    <div class="story-icon floating">👑</div>
+                    <div class="story-icon floating"><i class="ph-duotone ph-crown"></i></div>
                     <h3>Preserving Royal Traditions</h3>
                     <p>We work hand-in-hand with royal houses and traditional leaders to document, preserve, and share
                         the rich cultural practices.</p>
@@ -226,7 +274,7 @@
                 </div>
                 <div class="story-card" data-tilt>
                     <div class="card-glow"></div>
-                    <div class="story-icon floating">🌍</div>
+                    <div class="story-icon floating"><i class="ph-duotone ph-globe-hemisphere-africa"></i></div>
                     <h3>Empowering Future Generations</h3>
                     <p>Through education, cultural programs, and community initiatives, we ensure that the youth of
                         Africa know their heritage.</p>
@@ -249,41 +297,48 @@
             <div class="royal-gradient"></div>
             <div class="royal-pattern"></div>
             <div class="royal-rays"></div>
+            <div class="donate-particles"></div>
         </div>
 
         <div class="container">
-            <div class="mzilikazi-content">
-                <div class="mzilikazi-badge">
-                    <div class="badge-crown breathing">👑</div>
-                    <span>Our Royal Partner</span>
+            <div class="section-header light">
+                <span class="section-tag light"><span class="tag-icon">👑</span> Our Royal Partner</span>
+                <h2 class="section-title reveal-text">The Mzilikazi Royal Foundation</h2>
+                <div class="title-decoration light">
+                    <span class="deco-line animate-line"></span>
+                    <span class="deco-symbol pulse">🦁</span>
+                    <span class="deco-line animate-line"></span>
                 </div>
+                <p class="section-subtitle">Named after the legendary King Mzilikazi kaMashobane, carrying forward his
+                    vision of unity and strength.</p>
+            </div>
 
+            <div class="mzilikazi-content">
                 <div class="mzilikazi-card" data-tilt data-tilt-max="5">
                     <div class="card-border-glow"></div>
                     <div class="royal-crest">
                         <div class="crest-rings">
                             <span></span><span></span><span></span>
                         </div>
-                        <span class="crest-icon">🦁</span>
+                        <div class="crest-icon">
+                            <img src="assets/Mzilikazi_logo.png" alt="Mzilikazi Royal Foundation Logo">
+                        </div>
                     </div>
 
-                    <h2 class="mzilikazi-title reveal-text">The Mzilikazi Royal Foundation</h2>
-
-                    <p class="mzilikazi-text">Named after the legendary King Mzilikazi kaMashobane, founder of the
-                        Matabele nation, this foundation carries forward his vision of unity, strength, and cultural
-                        pride.</p>
+                    <p class="mzilikazi-text">The Foundation honors the legacy of the Matabele nation's founder by
+                        documenting traditions, educating youth, and empowering communities through cultural pride.</p>
 
                     <div class="mzilikazi-highlights">
                         <div class="highlight-item">
-                            <div class="highlight-icon breathing">📜</div>
+                            <div class="highlight-icon breathing"><i class="ph-duotone ph-scroll"></i></div>
                             <h4>Heritage Preservation</h4>
                         </div>
                         <div class="highlight-item">
-                            <div class="highlight-icon breathing">🎓</div>
+                            <div class="highlight-icon breathing"><i class="ph-duotone ph-graduation-cap"></i></div>
                             <h4>Youth Education</h4>
                         </div>
                         <div class="highlight-item">
-                            <div class="highlight-icon breathing">🤝</div>
+                            <div class="highlight-icon breathing"><i class="ph-duotone ph-handshake"></i></div>
                             <h4>Community Unity</h4>
                         </div>
                     </div>
@@ -313,25 +368,25 @@
             <div class="impact-grid">
                 <div class="impact-card" data-tilt>
                     <div class="impact-bg"></div>
-                    <div class="impact-icon floating">🏛️</div>
+                    <div class="impact-icon floating"><i class="ph-duotone ph-bank"></i></div>
                     <h3 class="impact-number" data-count="12">0</h3>
                     <p>Cultural Centers</p>
                 </div>
                 <div class="impact-card" data-tilt>
                     <div class="impact-bg"></div>
-                    <div class="impact-icon floating">📚</div>
+                    <div class="impact-icon floating"><i class="ph-duotone ph-books"></i></div>
                     <h3 class="impact-number" data-count="250">0</h3>
                     <p>Oral Histories Preserved</p>
                 </div>
                 <div class="impact-card" data-tilt>
                     <div class="impact-bg"></div>
-                    <div class="impact-icon floating">👨‍👩‍👧‍👦</div>
+                    <div class="impact-icon floating"><i class="ph-duotone ph-users-three"></i></div>
                     <h3 class="impact-number" data-count="10000">0</h3>
                     <p>Youth Educated</p>
                 </div>
                 <div class="impact-card" data-tilt>
                     <div class="impact-bg"></div>
-                    <div class="impact-icon floating">🎭</div>
+                    <div class="impact-icon floating"><i class="ph-duotone ph-mask-happy"></i></div>
                     <h3 class="impact-number" data-count="85">0</h3>
                     <p>Cultural Events</p>
                 </div>
@@ -351,13 +406,16 @@
                     <p>Your skills, passion, and time can help preserve the rich tapestry of African heritage.</p>
 
                     <div class="volunteer-roles">
-                        <div class="role-card magnetic"><span class="role-icon breathing">📖</span><span>Story
+                        <div class="role-card magnetic"><span class="role-icon breathing"><i
+                                    class="ph-duotone ph-book-open"></i></span><span>Story
                                 Keeper</span></div>
-                        <div class="role-card magnetic"><span class="role-icon breathing">🎨</span><span>Cultural
+                        <div class="role-card magnetic"><span class="role-icon breathing"><i
+                                    class="ph-duotone ph-palette"></i></span><span>Cultural
                                 Artist</span></div>
-                        <div class="role-card magnetic"><span
-                                class="role-icon breathing">🎤</span><span>Ambassador</span></div>
-                        <div class="role-card magnetic"><span class="role-icon breathing">🎓</span><span>Youth
+                        <div class="role-card magnetic"><span class="role-icon breathing"><i
+                                    class="ph-duotone ph-microphone-stage"></i></span><span>Ambassador</span></div>
+                        <div class="role-card magnetic"><span class="role-icon breathing"><i
+                                    class="ph-duotone ph-student"></i></span><span>Youth
                                 Mentor</span></div>
                     </div>
                 </div>
@@ -399,15 +457,57 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-full magnetic">
                             <span class="btn-text">Submit Application</span>
-                            <span class="btn-icon">✨</span>
+                            <span class="btn-icon"><i class="ph-duotone ph-sparkle"></i></span>
                             <div class="btn-glow"></div>
                         </button>
                     </form>
                     <div class="form-success" id="formSuccess" style="display:none;">
                         <div class="success-burst"></div>
-                        <div class="success-icon">✓</div>
+                        <div class="success-icon"><i class="ph-duotone ph-check-circle"></i></div>
                         <h3>Welcome to the Family!</h3>
                         <p>We'll be in touch soon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Merch Section -->
+    <section class="merch-section" id="merch">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><span class="tag-icon"><i class="ph-duotone ph-shopping-bag"></i></span>
+                    Official Merch</span>
+                <h2 class="section-title reveal-text">Wear Your Heritage</h2>
+                <div class="title-decoration">
+                    <span class="deco-line animate-line"></span>
+                    <span class="deco-symbol pulse"><i class="ph-duotone ph-t-shirt"></i></span>
+                    <span class="deco-line animate-line"></span>
+                </div>
+                <p class="section-subtitle">A collection inspired by the majesty of African royalty and the spirit of
+                    Ubuntu.</p>
+            </div>
+
+            <div class="merch-container">
+                <div class="merch-card" data-tilt>
+                    <div class="merch-image-wrapper">
+                        <img src="assets/merch.png" alt="Ubuntu Heritage Foundation Merch" class="merch-display-img">
+                        <div class="merch-overlay">
+                            <div class="coming-soon-badge">
+                                <i class="ph-duotone ph-hourglass"></i>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="merch-content">
+                        <h3>Foundation Collection 2026</h3>
+                        <p>Exclusive apparel and accessories supporting our preservation mission.</p>
+                        <div class="merch-footer">
+                            <span class="notify-text">Be the first to know when we launch!</span>
+                            <a href="#volunteer" class="btn btn-secondary magnetic">
+                                <span class="btn-text">Stay Updated</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -437,7 +537,7 @@
                 <div class="donation-tiers">
                     <div class="tier-card magnetic" data-amount="25">
                         <div class="tier-glow"></div>
-                        <div class="tier-icon floating">🌱</div>
+                        <div class="tier-icon floating"><i class="ph-duotone ph-plant"></i></div>
                         <h3>Seed Planter</h3>
                         <div class="tier-amount">$25</div>
                         <p>Materials for 5 students</p>
@@ -445,21 +545,21 @@
                     <div class="tier-card popular magnetic" data-amount="50">
                         <div class="popular-badge pulse">Popular</div>
                         <div class="tier-glow"></div>
-                        <div class="tier-icon floating">🌳</div>
+                        <div class="tier-icon floating"><i class="ph-duotone ph-tree-evergreen"></i></div>
                         <h3>Tree Grower</h3>
                         <div class="tier-amount">$50</div>
                         <p>Fund a workshop</p>
                     </div>
                     <div class="tier-card magnetic" data-amount="100">
                         <div class="tier-glow"></div>
-                        <div class="tier-icon floating">👑</div>
+                        <div class="tier-icon floating"><i class="ph-duotone ph-crown"></i></div>
                         <h3>Crown Bearer</h3>
                         <div class="tier-amount">$100</div>
                         <p>Sponsor youth exchange</p>
                     </div>
                     <div class="tier-card magnetic" data-amount="250">
                         <div class="tier-glow"></div>
-                        <div class="tier-icon floating">🦁</div>
+                        <div class="tier-icon floating"><i class="ph-duotone ph-leaf"></i></div>
                         <h3>Pride Leader</h3>
                         <div class="tier-amount">$250</div>
                         <p>Establish learning center</p>
@@ -516,12 +616,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="footer-logo">👑 Ubuntu Heritage</span>
+                    <div class="footer-logo">
+                        <img src="assets/ubuntu_logo-removebg.png" alt="Ubuntu Heritage Logo">
+                        <span>Ubuntu Heritage</span>
+                    </div>
                     <p>Preserving the past. Empowering the future.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-link magnetic">𝕏</a>
-                        <a href="#" class="social-link magnetic">in</a>
-                        <a href="#" class="social-link magnetic">fb</a>
+                        <a href="#" class="social-link magnetic"><i class="ph-duotone ph-x-logo"></i></a>
+                        <a href="#" class="social-link magnetic"><i class="ph-duotone ph-linkedin-logo"></i></a>
+                        <a href="#" class="social-link magnetic"><i class="ph-duotone ph-facebook-logo"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -545,7 +648,9 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
 </body>
+
 
 </html>
 </CodeContent>

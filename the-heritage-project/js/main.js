@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initVolunteerForm();
     initDonations();
     initPayPal();
+    initExperienceWidget();
 });
 
 // ============================================
@@ -719,5 +720,76 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
     });
 });
+
+// ============================================
+// EXPERIENCE SETTINGS WIDGET
+// ============================================
+function initExperienceWidget() {
+    const widget = document.getElementById('experienceWidget');
+    const toggleBtn = widget?.querySelector('.widget-toggle');
+    const modeToggles = document.querySelectorAll('input[name="heroMode"]');
+    const titleToggle = document.getElementById('titleToggle');
+    const hero = document.getElementById('hero');
+
+    if (!widget || !toggleBtn || !hero) return;
+
+    // Set initial mode
+    hero.classList.add('mode-video');
+
+    // Toggle Widget Panel
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        widget.classList.toggle('active');
+
+        // GSAP Spin
+        gsap.to(toggleBtn.querySelector('i'), {
+            rotate: widget.classList.contains('active') ? 90 : 0,
+            duration: 0.4,
+            ease: 'power2.out'
+        });
+    });
+
+    // Close panel when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!widget.contains(e.target) && widget.classList.contains('active')) {
+            widget.classList.remove('active');
+            gsap.to(toggleBtn.querySelector('i'), { rotate: 0, duration: 0.4 });
+        }
+    });
+
+    // Handle Background Modes
+    modeToggles.forEach(toggle => {
+        toggle.addEventListener('change', () => {
+            const mode = toggle.value;
+
+            // Update classes
+            hero.classList.remove('mode-classic', 'mode-image', 'mode-video');
+            hero.classList.add(`mode-${mode}`);
+
+            // Video handling
+            const video = document.getElementById('heroVideo');
+            if (mode === 'video') {
+                video?.play();
+            } else {
+                video?.pause();
+            }
+
+            // Magnetic haptic effect
+            gsap.fromTo(widget.querySelector('.mode-glider'),
+                { scale: 0.9 },
+                { scale: 1, duration: 0.3, ease: 'back.out(2)' }
+            );
+        });
+    });
+
+    // Title Toggle
+    titleToggle?.addEventListener('change', () => {
+        if (titleToggle.checked) {
+            document.body.classList.remove('title-hidden');
+        } else {
+            document.body.classList.add('title-hidden');
+        }
+    });
+}
 
 console.log('✨ Ubuntu Heritage Foundation - Premium Experience Loaded');
