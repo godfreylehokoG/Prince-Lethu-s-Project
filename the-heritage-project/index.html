@@ -94,7 +94,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero" id="hero">
+    <header class="hero mode-video" id="hero">
         <div class="hero-bg">
             <video autoplay muted loop playsinline class="hero-video" id="heroVideo">
                 <source src="assets/background.mp4" type="video/mp4">
@@ -109,44 +109,30 @@
 
         <!-- Experience Settings Widget -->
         <div class="experience-widget" id="experienceWidget">
-            <button class="widget-toggle magnetic" title="Display Settings">
-                <i class="ph-duotone ph-sliders"></i>
+            <button class="widget-toggle magnetic" title="Theme Settings">
+                <i class="ph-duotone ph-palette"></i>
             </button>
             <div class="widget-panel">
                 <div class="widget-header">
-                    <h4>Experience Settings</h4>
+                    <h4>Appearance</h4>
                 </div>
                 <div class="widget-body">
                     <div class="setting-item special">
                         <div class="setting-info">
-                            <span class="setting-label">Visual Mode</span>
-                            <span class="setting-desc">Classic • Image • Video</span>
+                            <span class="setting-label">Theme Mode</span>
+                            <span class="setting-desc">Bright • Dark</span>
                         </div>
-                        <div class="mode-selector">
-                            <label class="mode-option" title="Classic Theme">
-                                <input type="radio" name="heroMode" value="classic">
-                                <i class="ph-duotone ph-paint-brush-broad"></i>
+                        <div class="mode-selector theme-selector">
+                            <label class="mode-option" title="Bright Mode">
+                                <input type="radio" name="themeMode" value="light" checked>
+                                <i class="ph-duotone ph-sun"></i>
                             </label>
-                            <label class="mode-option" title="Heritage Image">
-                                <input type="radio" name="heroMode" value="image">
-                                <i class="ph-duotone ph-image"></i>
-                            </label>
-                            <label class="mode-option" title="Cinematic Video">
-                                <input type="radio" name="heroMode" value="video" checked>
-                                <i class="ph-duotone ph-play-circle"></i>
+                            <label class="mode-option" title="Dark Mode">
+                                <input type="radio" name="themeMode" value="dark">
+                                <i class="ph-duotone ph-moon"></i>
                             </label>
                             <div class="mode-glider"></div>
                         </div>
-                    </div>
-                    <div class="setting-item">
-                        <div class="setting-info">
-                            <span class="setting-label">Regal Title</span>
-                            <span class="setting-desc">Main hero heading</span>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="titleToggle" checked>
-                            <span class="toggle-slider"></span>
-                        </label>
                     </div>
                 </div>
             </div>
@@ -172,7 +158,7 @@
                 <span class="badge-star">✦</span>
             </div>
 
-            <h1 class="hero-title">
+            <!-- <h1 class="hero-title">
                 <span class="title-line animate-on-load" data-delay="0.2">
                     <span class="char-wrap">Honoring the</span>
                 </span>
@@ -183,7 +169,7 @@
                 <span class="title-line animate-on-load" data-delay="0.6">
                     <span class="char-wrap">Kingdoms</span>
                 </span>
-            </h1>
+            </h1> -->
 
             <p class="hero-subtitle animate-on-load" data-delay="0.8">
                 We honor the majestic heritage of African kingdoms, preserving traditions
@@ -291,6 +277,77 @@
         </div>
     </div>
 
+    <!-- Leadership Section -->
+    <section class="leadership-section" id="leadership">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><span class="tag-icon"><i class="ph-duotone ph-crown"></i></span> Guardians of
+                    Heritage</span>
+                <h2 class="section-title reveal-text">Leadership & Legacy</h2>
+                <div class="title-decoration">
+                    <span class="deco-line animate-line"></span>
+                    <span class="deco-symbol pulse"><i class="ph-duotone ph-users-three"></i></span>
+                    <span class="deco-line animate-line"></span>
+                </div>
+                <p class="section-subtitle">Guided by the wisdom of our ancestors, led by visionaries dedicated to
+                    cultural preservation.</p>
+            </div>
+
+            <div class="leadership-grid">
+                <div class="leader-card" data-tilt>
+                    <div class="leader-image">
+                        <img src="assets/leader_3.png" alt="Prince Lethusang Mzilikazi">
+                        <div class="leader-overlay"></div>
+                    </div>
+                    <div class="leader-info">
+                        <span class="leader-role">Founder & Patron</span>
+                        <h3>Prince Lethusang Mzilikazi</h3>
+                        <p>A direct descendant of the royal house, dedicated to reviving the ancient protocols and
+                            histories of the Matabele nation.</p>
+                        <div class="leader-social">
+                            <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                            <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leader-card" data-tilt>
+                    <div class="leader-image">
+                        <img src="assets/leader_2.png" alt="Dr. Thandiwe Khumalo">
+                        <div class="leader-overlay"></div>
+                    </div>
+                    <div class="leader-info">
+                        <span class="leader-role">Executive Director</span>
+                        <h3>Dr. Thandiwe Khumalo</h3>
+                        <p>An esteemed anthropologist specializing in Southern African oral traditions and indigenous
+                            knowledge systems.</p>
+                        <div class="leader-social">
+                            <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                            <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leader-card" data-tilt>
+                    <div class="leader-image">
+                        <img src="assets/leader_1.png" alt="Chief Nkosi Dlamini">
+                        <div class="leader-overlay"></div>
+                    </div>
+                    <div class="leader-info">
+                        <span class="leader-role">Cultural Advisor</span>
+                        <h3>Chief Nkosi Dlamini</h3>
+                        <p>A traditional leader with decades of experience in community development and heritage legal
+                            frameworks.</p>
+                        <div class="leader-social">
+                            <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                            <a href="#"><i class="ph ph-facebook-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Mzilikazi Section -->
     <section class="mzilikazi-section" id="mzilikazi">
         <div class="mzilikazi-bg">
@@ -302,51 +359,74 @@
 
         <div class="container">
             <div class="section-header light">
-                <span class="section-tag light"><span class="tag-icon">👑</span> Our Royal Partner</span>
-                <h2 class="section-title reveal-text">The Mzilikazi Royal Foundation</h2>
+                <span class="section-tag light"><span class="tag-icon">👑</span> Royal Leadership</span>
+                <h2 class="section-title reveal-text">Her Majesty Ndlovukazi</h2>
                 <div class="title-decoration light">
                     <span class="deco-line animate-line"></span>
                     <span class="deco-symbol pulse">🦁</span>
                     <span class="deco-line animate-line"></span>
                 </div>
-                <p class="section-subtitle">Named after the legendary King Mzilikazi kaMashobane, carrying forward his
-                    vision of unity and strength.</p>
+                <p class="section-subtitle">Queen Cynthia Puna Khumalo Mzilikazi III • Mama Wezizwe</p>
             </div>
 
             <div class="mzilikazi-content">
                 <div class="mzilikazi-card" data-tilt data-tilt-max="5">
+                    <video autoplay muted loop playsinline class="card-video-bg">
+                        <source src="assets/mzilikazi_animated_logo.mp4" type="video/mp4">
+                    </video>
                     <div class="card-border-glow"></div>
+
                     <div class="royal-crest">
                         <div class="crest-rings">
                             <span></span><span></span><span></span>
                         </div>
                         <div class="crest-icon">
-                            <img src="assets/Mzilikazi_logo.png" alt="Mzilikazi Royal Foundation Logo">
+                            <img src="assets/Mzilikazi_logo-round.png" alt="Mzilikazi Royal Foundation Logo">
                         </div>
                     </div>
 
-                    <p class="mzilikazi-text">The Foundation honors the legacy of the Matabele nation's founder by
-                        documenting traditions, educating youth, and empowering communities through cultural pride.</p>
+                    <div class="queen-quote-container">
+                        <span class="quote-mark">“</span>
+                        <p class="queen-quote">We came not to make demands but to offer an embrace... not as pomp, but
+                            as purpose.</p>
+                        <span class="quote-author">— Ndlovukazi Queen Cynthia Puna Khumalo Mzilikazi III</span>
+                    </div>
+
+                    <p class="mzilikazi-text">Founder of the Nkulumane Foundation and a direct descendant of King
+                        Mzilikazi. Her Majesty serves as the 'Mother of Nations,' unifying African kingdoms and diaspora
+                        communities through cultural diplomacy and humanitarian purpose.</p>
 
                     <div class="mzilikazi-highlights">
                         <div class="highlight-item">
-                            <div class="highlight-icon breathing"><i class="ph-duotone ph-scroll"></i></div>
-                            <h4>Heritage Preservation</h4>
+                            <div class="highlight-icon breathing"><i class="ph-duotone ph-globe-hemisphere-africa"></i>
+                            </div>
+                            <h4>Mama Wezizwe</h4>
+                            <span class="highlight-desc">Mother of Nations</span>
                         </div>
                         <div class="highlight-item">
-                            <div class="highlight-icon breathing"><i class="ph-duotone ph-graduation-cap"></i></div>
-                            <h4>Youth Education</h4>
+                            <div class="highlight-icon breathing"><i class="ph-duotone ph-crown"></i></div>
+                            <h4>Custodian</h4>
+                            <span class="highlight-desc">Ndebele Heritage</span>
                         </div>
                         <div class="highlight-item">
                             <div class="highlight-icon breathing"><i class="ph-duotone ph-handshake"></i></div>
-                            <h4>Community Unity</h4>
+                            <h4>Diplomat</h4>
+                            <span class="highlight-desc">Global Advocacy</span>
                         </div>
                     </div>
 
-                    <a href="#donate" class="btn btn-royal magnetic">
-                        <span class="btn-text">Support the Foundation</span>
-                        <div class="btn-shimmer"></div>
-                    </a>
+                    <div class="mzilikazi-actions">
+                        <a href="assets/PROFILE_OF_NDLOVUKAZI_MZILIKAZI_III.pdf" target="_blank"
+                            class="btn btn-primary magnetic">
+                            <span class="btn-text">Download Royal Profile</span>
+                            <span class="btn-icon"><i class="ph-duotone ph-download-simple"></i></span>
+                            <div class="btn-glow"></div>
+                        </a>
+                        <a href="#donate" class="btn btn-royal magnetic">
+                            <span class="btn-text">Support the Foundation</span>
+                            <div class="btn-shimmer"></div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -589,6 +669,34 @@
                     <p class="secure-text">🔒 Secure payment via PayPal</p>
                 </div>
             </div>
+
+            <div class="transparency-card">
+                <div class="transparency-info">
+                    <div class="transparency-header">
+                        <i class="ph-duotone ph-shield-check"></i>
+                        <h3>Trust & Transparency</h3>
+                    </div>
+                    <p>We are a registered NPO dedicated to the highest standards of financial accountability.</p>
+                </div>
+                <div class="transparency-stats">
+                    <div class="t-stat">
+                        <strong>85%</strong>
+                        <span>Program Impact</span>
+                    </div>
+                    <div class="t-stat">
+                        <strong>10%</strong>
+                        <span>Sustainability</span>
+                    </div>
+                    <div class="t-stat">
+                        <strong>5%</strong>
+                        <span>Administration</span>
+                    </div>
+                </div>
+                <div class="transparency-links">
+                    <a href="#" class="text-link"><i class="ph ph-file-pdf"></i> Annual Report 2025</a>
+                    <a href="#" class="text-link"><i class="ph ph-certificate"></i> NPO Certificate</a>
+                </div>
+            </div>
         </div>
 
         <div class="donation-success" id="donationSuccess" style="display:none;">
@@ -654,4 +762,4 @@
 
 </html>
 </CodeContent>
-<parameter name="Complexity">7
+<parameter name="Complexity">

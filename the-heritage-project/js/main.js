@@ -280,6 +280,42 @@ function initAnimations() {
         ease: 'power2.out'
     });
 
+    // Queen's Quote & Actions Animation
+    gsap.from('.queen-quote', {
+        scrollTrigger: {
+            trigger: '.mzilikazi-card',
+            start: 'top 60%'
+        },
+        y: 30,
+        opacity: 0,
+        duration: 1.2,
+        delay: 0.6,
+        ease: 'power3.out'
+    });
+
+    gsap.from('.quote-author', {
+        scrollTrigger: {
+            trigger: '.mzilikazi-card',
+            start: 'top 60%'
+        },
+        opacity: 0,
+        duration: 1,
+        delay: 1,
+        ease: 'power2.out'
+    });
+
+    gsap.from('.mzilikazi-actions .btn', {
+        scrollTrigger: {
+            trigger: '.mzilikazi-actions',
+            start: 'top 90%'
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: 'power2.out'
+    });
+
     // Impact cards
     gsap.utils.toArray('.impact-card').forEach((card, i) => {
         gsap.from(card, {
@@ -727,14 +763,9 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
 function initExperienceWidget() {
     const widget = document.getElementById('experienceWidget');
     const toggleBtn = widget?.querySelector('.widget-toggle');
-    const modeToggles = document.querySelectorAll('input[name="heroMode"]');
-    const titleToggle = document.getElementById('titleToggle');
-    const hero = document.getElementById('hero');
+    const themeToggles = document.querySelectorAll('input[name="themeMode"]');
 
-    if (!widget || !toggleBtn || !hero) return;
-
-    // Set initial mode
-    hero.classList.add('mode-video');
+    if (!widget || !toggleBtn) return;
 
     // Toggle Widget Panel
     toggleBtn.addEventListener('click', (e) => {
@@ -757,38 +788,28 @@ function initExperienceWidget() {
         }
     });
 
-    // Handle Background Modes
-    modeToggles.forEach(toggle => {
+    // Handle Theme Modes
+    themeToggles.forEach(toggle => {
+        // Initialize on load
+        if (toggle.checked) {
+            document.documentElement.setAttribute('data-theme', toggle.value);
+        }
+
         toggle.addEventListener('change', () => {
-            const mode = toggle.value;
+            const theme = toggle.value;
 
-            // Update classes
-            hero.classList.remove('mode-classic', 'mode-image', 'mode-video');
-            hero.classList.add(`mode-${mode}`);
-
-            // Video handling
-            const video = document.getElementById('heroVideo');
-            if (mode === 'video') {
-                video?.play();
-            } else {
-                video?.pause();
-            }
+            // Update Theme on Root
+            document.documentElement.setAttribute('data-theme', theme);
 
             // Magnetic haptic effect
             gsap.fromTo(widget.querySelector('.mode-glider'),
                 { scale: 0.9 },
                 { scale: 1, duration: 0.3, ease: 'back.out(2)' }
             );
-        });
-    });
 
-    // Title Toggle
-    titleToggle?.addEventListener('change', () => {
-        if (titleToggle.checked) {
-            document.body.classList.remove('title-hidden');
-        } else {
-            document.body.classList.add('title-hidden');
-        }
+            // Notify user
+            console.log(`✨ Theme switched to: ${theme}`);
+        });
     });
 }
 
