@@ -789,17 +789,25 @@ function initExperienceWidget() {
     });
 
     // Handle Theme Modes
-    themeToggles.forEach(toggle => {
-        // Initialize on load
-        if (toggle.checked) {
-            document.documentElement.setAttribute('data-theme', toggle.value);
-        }
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        // Also update radio state just in case
+        const targetRadio = widget.querySelector(`input[value="${theme}"]`);
+        if (targetRadio) targetRadio.checked = true;
+    }
 
+    // Initialize on load based on checked radio
+    const checkedTheme = widget.querySelector('input[name="themeMode"]:checked');
+    if (checkedTheme) {
+        setTheme(checkedTheme.value);
+    } else {
+        setTheme('light'); // Default fallback
+    }
+
+    themeToggles.forEach(toggle => {
         toggle.addEventListener('change', () => {
             const theme = toggle.value;
-
-            // Update Theme on Root
-            document.documentElement.setAttribute('data-theme', theme);
+            setTheme(theme);
 
             // Magnetic haptic effect
             gsap.fromTo(widget.querySelector('.mode-glider'),
@@ -807,7 +815,6 @@ function initExperienceWidget() {
                 { scale: 1, duration: 0.3, ease: 'back.out(2)' }
             );
 
-            // Notify user
             console.log(`✨ Theme switched to: ${theme}`);
         });
     });
