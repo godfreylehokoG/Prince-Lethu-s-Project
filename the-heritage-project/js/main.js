@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initDonations();
     initPayPal();
     initExperienceWidget();
+    initEventsTabs();
+    initEventsModal();
 });
 
 // ============================================
@@ -817,6 +819,120 @@ function initExperienceWidget() {
 
             console.log(`✨ Theme switched to: ${theme}`);
         });
+    });
+}
+
+// ============================================
+// EVENTS TABS
+// ============================================
+function initEventsTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const grids = document.querySelectorAll('.events-grid');
+
+    if (!tabBtns.length) return;
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+
+            // Toggle Buttons
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Toggle Grids
+            grids.forEach(grid => {
+                grid.classList.remove('active');
+                if (grid.id === tabId) {
+                    grid.classList.add('active');
+
+                    // Trigger scroll trigger refresh for new content
+                    ScrollTrigger.refresh();
+                }
+            });
+        });
+    });
+}
+
+// ============================================
+// EVENTS MODAL
+// ============================================
+function initEventsModal() {
+    const modal = document.getElementById('eventModal');
+    const form = document.getElementById('eventRegForm');
+    const success = document.getElementById('eventSuccess');
+    const mainContent = document.getElementById('modalMainContent');
+    const eventCards = document.querySelectorAll('.event-card');
+
+    if (!modal) return;
+
+    window.openEventModal = function (card) {
+        // Reset view
+        success.style.display = 'none';
+        mainContent.style.display = 'block';
+        mainContent.style.opacity = '1';
+        mainContent.style.transform = 'translateY(0)';
+
+        // Populate Data
+        const title = card.querySelector('h3').textContent;
+        const img = card.querySelector('.event-image img').src;
+        const dateTag = card.querySelector('.event-date-tag');
+        const dateText = dateTag ? dateTag.textContent.trim().replace(/\s+/g, ' ') : '';
+        const details = card.querySelectorAll('.event-details span');
+        const loc = details[0] ? details[0].textContent.trim() : '';
+        const time = details[1] ? details[1].textContent.trim() : '';
+
+        document.getElementById('modalEventTitle').textContent = title;
+        document.getElementById('modalEventImg').src = img;
+        document.getElementById('modalEventDate').innerHTML = `<i class="ph ph-calendar"></i> ${dateText} • ${time}`;
+        document.getElementById('modalEventLocation').innerHTML = `<i class="ph ph-map-pin"></i> ${loc}`;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeEventModal = function () {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    // Card Clicks
+    eventCards.forEach(card => {
+        const link = card.querySelector('.event-link');
+        if (link && (link.textContent.includes('Book') || link.textContent.includes('Register'))) {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                openEventModal(card);
+            });
+        }
+    });
+
+    // Form Submit
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Animation for transition
+            gsap.to(mainContent, {
+                opacity: 0,
+                y: -20,
+                duration: 0.4,
+                onComplete: () => {
+                    mainContent.style.display = 'none';
+                    success.style.display = 'block';
+                    gsap.fromTo(success,
+                        { opacity: 0, y: 20 },
+                        { opacity: 1, y: 0, duration: 0.5 }
+                    );
+                }
+            });
+        });
+    }
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeEventModal();
+        }
     });
 }
 
