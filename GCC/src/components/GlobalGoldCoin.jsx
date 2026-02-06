@@ -24,7 +24,7 @@ export default function GlobalGoldCoin({ data }) {
     ];
 
     return (
-        <section id="global gold coin" className="py-24 px-6 md:px-10 bg-[#05060f] relative overflow-hidden">
+        <section id="ggc" className="py-24 px-6 md:px-10 bg-[#05060f] relative overflow-hidden">
             {/* Decorative Gold Glow */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500/5 rounded-full blur-[120px] -z-0" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[100px] -z-0" />
@@ -48,8 +48,8 @@ export default function GlobalGoldCoin({ data }) {
                                         key={tab.id}
                                         onClick={() => setActiveTab(tab.id)}
                                         className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === tab.id
-                                                ? 'bg-yellow-500 text-black shadow-lg shadow-yellow-500/20'
-                                                : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                                            ? 'bg-yellow-500 text-black shadow-lg shadow-yellow-500/20'
+                                            : 'bg-white/5 text-gray-400 hover:bg-white/10'
                                             }`}
                                     >
                                         <Icon size={18} />

@@ -85,7 +85,7 @@ export default function GGC() {
     setFormSubmitted(true);
   };
 
-  const navItems = ["Philosophy", "Global Gold Coin", "Leadership", "The Book", "Trainings", "Events", "Legacy", "Tutorials", "News", "Contact"];
+  const navItems = ["Philosophy", "GGC", "Leadership", "Trainings", "Events", "Tutorials", "News", "Contact"];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0b0f2b] to-[#05060f] text-[#eef2f6] font-[Poppins]">
@@ -93,7 +93,6 @@ export default function GGC() {
       <header className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-10 py-5 backdrop-blur bg-black/40">
         <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img src="/WealthMindset-removebg.png" alt="GGC Logo" className="h-10 md:h-12 w-auto" />
-          <h1 className="text-xl md:text-2xl font-bold text-indigo-400">The Wealth Mindset</h1>
         </a>
 
         {/* Desktop Navigation */}
